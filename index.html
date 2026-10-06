@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#11231f" />
+  <title>Tu próxima web | CSSENZA STUDIO</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="vendor/lucide-icons.js" defer></script>
+  <script src="assets/hero.js" defer></script>
+  <script src="site-renderer.js" defer></script>
+  <script src="draft-store.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="../index.html" aria-label="CSSENZA STUDIO, página principal">
+      <span class="brand-mark">CS</span>
+      <span><strong>CSSENZA</strong><small>STUDIO</small></span>
+    </a>
+    <span class="header-label">Tu próxima web</span>
+    <button class="icon-button" id="resetButton" type="button" aria-label="Empezar de nuevo" title="Empezar de nuevo"><span data-icon="RotateCcw"></span></button>
+  </header>
+
+  <main class="workspace">
+    <section class="editor" aria-label="Personalizar tu página">
+      <div class="editor-heading">
+        <span class="eyebrow">HECHO PARA TU NEGOCIO</span>
+        <h1>Tu idea, en una web.</h1>
+        <div class="step-caption"><span id="stepCaption">01 / Tu negocio</span><span id="stepCount">1 de 4</span></div>
+      </div>
+
+      <nav class="steps" aria-label="Pasos de personalización">
+        <button type="button" class="step-tab active" data-step="0" aria-current="step" title="Tu negocio"><span data-icon="Store"></span><span>Negocio</span></button>
+        <button type="button" class="step-tab" data-step="1" title="Tu página"><span data-icon="LayoutTemplate"></span><span>Página</span></button>
+        <button type="button" class="step-tab" data-step="2" title="Tus productos"><span data-icon="Package"></span><span>Productos</span></button>
+        <button type="button" class="step-tab" data-step="3" title="Tu diseño"><span data-icon="Palette"></span><span>Diseño</span></button>
+      </nav>
+
+      <form id="demoForm" novalidate>
+        <div class="step-panel" data-panel="0">
+          <h2>Empecemos por vos.</h2>
+          <div class="field">
+            <label for="ownerName">Tu nombre <span class="required-mark">*</span></label>
+            <input id="ownerName" name="ownerName" type="text" autocomplete="given-name" placeholder="Por ejemplo, Lucca" maxlength="60" required aria-describedby="ownerError" />
+            <p class="field-error" id="ownerError" hidden></p>
+          </div>
+          <div class="field">
+            <label for="businessName">Nombre de tu empresa <span class="required-mark">*</span></label>
+            <input id="businessName" name="businessName" type="text" autocomplete="organization" placeholder="El nombre de tu negocio" maxlength="80" required aria-describedby="businessError" />
+            <p class="field-error" id="businessError" hidden></p>
+          </div>
+          <div class="field">
+            <span class="field-label">Logo de tu empresa <span class="optional">Opcional</span></span>
+            <div class="logo-setting">
+              <div class="logo-thumbnail" id="logoThumbnail" hidden><img id="logoImage" alt="Logo de tu empresa" /></div>
+              <button class="button button-secondary" id="addLogo" type="button"><span data-icon="ImagePlus"></span><span id="logoButtonLabel">Agregar logo</span></button>
+              <button class="icon-button" id="removeLogo" type="button" aria-label="Quitar logo" title="Quitar logo" hidden><span data-icon="Trash2"></span></button>
+              <input class="sr-only" id="logoInput" type="file" accept="image/jpeg,image/png,image/webp" tabindex="-1" />
+            </div>
+            <p class="field-error" id="logoError" role="alert" hidden></p>
+            <fieldset class="logo-shape-setting" id="logoShapeSetting" hidden>
+              <legend>Formato del logo</legend>
+              <div class="logo-shape-options">
+                <label><input type="radio" name="logoShape" value="original" checked /><span>Original</span></label>
+                <label><input type="radio" name="logoShape" value="circle" /><span>Circular</span></label>
+                <label><input type="radio" name="logoShape" value="square" /><span>Cuadrado</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="field">
+            <label for="businessDescription">Una frase sobre tu negocio <span class="optional">Opcional</span></label>
+            <textarea id="businessDescription" name="businessDescription" rows="3" maxlength="240" placeholder="Qué ofrecés y qué hace especial a tu marca"></textarea>
+          </div>
+        </div>
+
+        <div class="step-panel" data-panel="1" hidden>
+          <h2>¿Qué querés hacer?</h2>
+          <fieldset class="mode-options">
+            <legend class="sr-only">Tipo de página</legend>
+            <label class="mode-option selected">
+              <input type="radio" name="mode" value="showcase" checked />
+              <span class="option-icon" data-icon="GalleryHorizontalEnd"></span>
+              <span><strong>Mostrar mis productos</strong><small>Vidriera de mi negocio</small></span>
+              <span class="radio-mark"></span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="catalog" />
+              <span class="option-icon" data-icon="ShoppingBag"></span>
+              <span><strong>Vender por catálogo</strong><small>Productos y pedidos de prueba</small></span>
+              <span class="radio-mark"></span>
+            </label>
+          </fieldset>
+          <div class="whatsapp-setting">
+            <label class="switch-label" for="whatsappEnabled"><span data-icon="MessageCircle"></span><span>Agregar WhatsApp</span><input id="whatsappEnabled" type="checkbox" role="switch" /><span class="switch-track"></span></label>
+            <div id="phoneFields" hidden>
+              <div class="field">
+                <label for="phone">Número de WhatsApp</label>
+                <div class="phone-input"><select id="phonePrefix" aria-label="Código de país"><option value="549">AR +54</option><option value="598">UY +598</option><option value="56">CL +56</option><option value="34">ES +34</option><option value="1">US +1</option><option value="">Internacional</option></select><input id="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="341 123 4567" maxlength="24" aria-describedby="phoneError" /></div>
+                <p class="field-error" id="phoneError" hidden></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-panel" data-panel="2" hidden>
+          <div class="panel-title"><h2>Tus productos.</h2><span class="count-label" id="photoCount">0 / 5 fotos</span></div>
+          <div class="dropzone" id="dropzone">
+            <span class="upload-symbol" data-icon="ImagePlus"></span>
+            <button class="button button-secondary" type="button" id="addPhotos"><span data-icon="Plus"></span>Agregar fotos</button>
+            <span class="file-types">JPG, PNG o WebP</span>
+            <input class="sr-only" id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple tabindex="-1" />
+          </div>
+          <p id="uploadError" class="field-error" role="alert" hidden></p>
+          <div class="catalog-currency" id="currencyField" hidden><label for="currency">Moneda del catálogo</label><select id="currency"><option value="ARS">Pesos argentinos (ARS)</option><option value="USD">Dólares (USD)</option><option value="UYU">Pesos uruguayos (UYU)</option><option value="CLP">Pesos chilenos (CLP)</option><option value="EUR">Euros (EUR)</option></select></div>
+          <div id="productEditors"></div>
+        </div>
+
+        <div class="step-panel" data-panel="3" hidden>
+          <h2>Elegí tu estilo.</h2>
+          <fieldset class="design-options">
+            <legend class="sr-only">Diseño de tu sitio</legend>
+            <label class="design-option selected"><input type="radio" name="design" value="editorial" checked /><span class="design-sample sample-editorial" aria-hidden="true"><span class="sample-heading">Aa</span><span class="sample-block"></span><span class="sample-lines"></span></span><span class="design-copy"><strong>Editorial</strong><small>Natural y atemporal</small><span class="swatches"><i style="--swatch:#f7faf8"></i><i style="--swatch:#225d4a"></i><i style="--swatch:#162a22"></i></span></span><span class="radio-mark"></span></label>
+            <label class="design-option"><input type="radio" name="design" value="nocturna" /><span class="design-sample sample-nocturna" aria-hidden="true"><span class="sample-heading">Aa</span><span class="sample-block"></span><span class="sample-lines"></span></span><span class="design-copy"><strong>Nocturna</strong><small>Contraste y carácter</small><span class="swatches"><i style="--swatch:#141919"></i><i style="--swatch:#00dbc5"></i><i style="--swatch:#f4f6f5"></i></span></span><span class="radio-mark"></span></label>
+            <label class="design-option"><input type="radio" name="design" value="galeria" /><span class="design-sample sample-galeria" aria-hidden="true"><span class="sample-heading">Aa</span><span class="sample-block"></span><span class="sample-lines"></span></span><span class="design-copy"><strong>Galería</strong><small>Delicado y contemporáneo</small><span class="swatches"><i style="--swatch:#ffffff"></i><i style="--swatch:#96334e"></i><i style="--swatch:#262226"></i></span></span><span class="radio-mark"></span></label>
+          </fieldset>
+          <div class="brand-color-setting">
+            <label for="brandColor">Color de tu marca <span class="optional">Opcional</span></label>
+            <div class="color-controls"><input id="brandColor" type="color" value="#225d4a" /><span id="colorValue">#225D4A</span><button class="icon-button" id="resetColor" type="button" aria-label="Restablecer color del diseño" title="Restablecer color del diseño" disabled><span data-icon="RotateCcw"></span></button></div>
+            <div class="color-swatches" role="group" aria-label="Colores de marca"><button type="button" class="color-swatch" data-color="#225d4a" style="--swatch:#225d4a" aria-label="Usar verde bosque" aria-pressed="false" title="Verde bosque"></button><button type="button" class="color-swatch" data-color="#00dac3" style="--swatch:#00dac3" aria-label="Usar turquesa" aria-pressed="false" title="Turquesa"></button><button type="button" class="color-swatch" data-color="#96334e" style="--swatch:#96334e" aria-label="Usar vino" aria-pressed="false" title="Vino"></button><button type="button" class="color-swatch" data-color="#275aca" style="--swatch:#275aca" aria-label="Usar azul" aria-pressed="false" title="Azul"></button><button type="button" class="color-swatch" data-color="#b55b18" style="--swatch:#b55b18" aria-label="Usar cobre" aria-pressed="false" title="Cobre"></button><button type="button" class="color-swatch" data-color="#292328" style="--swatch:#292328" aria-label="Usar grafito" aria-pressed="false" title="Grafito"></button></div>
+          </div>
+          <div id="demoSummary" class="demo-summary"></div>
+          <div class="finish-actions">
+            <button class="button button-primary" id="openDemo" type="button"><span data-icon="ExternalLink"></span>Ver mi demo completa</button>
+            <button class="button button-secondary" id="downloadDemo" type="button"><span data-icon="Download"></span>Descargar mi demo</button>
+            <a class="quote-link" id="requestQuote" href="#" target="_blank" rel="noopener">Pedir presupuesto sin cargo<span data-icon="ArrowUpRight"></span></a>
+          </div>
+        </div>
+
+        <div class="step-navigation">
+          <button class="button button-quiet" type="button" id="previousStep" hidden><span data-icon="ArrowLeft"></span>Volver</button>
+          <button class="button button-primary" type="submit" id="nextStep">Continuar<span data-icon="ArrowRight"></span></button>
+        </div>
+      </form>
+      <footer class="editor-footer"><span class="draft-indicator"><span class="status-dot"></span><span id="draftStatus" role="status">Cargando borrador…</span></span><span>Demo de prueba sin cargo</span></footer>
+    </section>
+
+    <section class="preview-area" aria-label="Vista previa de tu página">
+      <div class="preview-toolbar">
+        <span class="preview-heading"><span class="live-dot"></span>Vista previa</span>
+        <div class="device-switch" role="group" aria-label="Tamaño de vista previa"><button class="icon-button active" type="button" data-device="desktop" aria-label="Vista de computadora" aria-pressed="true" title="Computadora"><span data-icon="Monitor"></span></button><button class="icon-button" type="button" data-device="mobile" aria-label="Vista de celular" aria-pressed="false" title="Celular"><span data-icon="Smartphone"></span></button></div>
+        <button class="icon-button" id="expandPreview" type="button" aria-label="Ampliar vista previa" title="Ampliar vista previa"><span data-icon="Maximize2"></span></button>
+      </div>
+      <div class="preview-stage" id="previewStage"><div class="preview-frame"><div class="browser-bar" aria-hidden="true"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-address" id="previewAddress">tu-negocio.demo</span><span data-icon="LockKeyhole"></span></div><iframe id="sitePreview" title="Vista previa de tu negocio" sandbox="allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox"></iframe></div></div>
+      <div class="preview-footer"><span id="previewDesignName">Editorial</span><span id="previewModeName">Vidriera</span></div>
+    </section>
+  </main>
+
+  <dialog id="resetDialog" class="reset-dialog"><form method="dialog"><span class="dialog-icon" data-icon="RotateCcw"></span><h2>¿Empezar de nuevo?</h2><p>Se quitarán los datos y las fotos de esta demo.</p><div class="dialog-actions"><button class="button button-secondary" value="cancel">Cancelar</button><button class="button button-primary" value="reset">Empezar de nuevo</button></div></form></dialog>
+  <p id="announcement" class="sr-only" aria-live="polite"></p>
+  <noscript>Activá JavaScript para personalizar tu demo.</noscript>
+</body>
+</html>
