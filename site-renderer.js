@@ -53,7 +53,7 @@
     .site-button.outline{border-color:var(--accent-text,var(--accent))}
     button:focus-visible,a:focus-visible{outline-color:var(--accent-text,var(--accent))}
     @media(max-width:600px){.site-logo{width:36px;height:36px}.site--galeria .site-logo{width:37px;height:37px}}
-    .site-logo[data-shape="circle"]{object-fit:cover;border-radius:50%}
+    .site-logo[data-shape="circle"]{object-fit:cover;object-position:50% 50%;border-radius:50%}
     .site-logo[data-shape="square"]{object-fit:cover;border-radius:0}
     .site-logo[data-shape="original"]{width:auto;max-width:140px;object-fit:contain;border-radius:0}
     @media(max-width:600px){.site-logo[data-shape="original"]{max-width:95px}}

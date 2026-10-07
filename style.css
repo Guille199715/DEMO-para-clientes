@@ -145,8 +145,8 @@ iframe{border:0;width:100%;flex:1;min-height:0;background:white}
 @media(max-width:420px){.app-header{padding:0 16px;gap:14px}.header-label{font-size:11px;padding-left:14px}.editor{padding:24px 18px 18px}h1{font-size:25px}.preview-area{padding:16px 10px}.preview-heading{font-size:11px}.preview-toolbar{padding:0 6px;gap:8px}.preview-frame{height:690px}.preview-stage.mobile .preview-frame{height:690px}.mode-option{padding:14px 10px;gap:9px}.mode-option strong{font-size:12px}.step-tab{font-size:10px}.dialog-actions{flex-direction:column}.button{font-size:12px}.phone-input{grid-template-columns:98px minmax(0,1fr)}}
 .field-label{display:block;font-size:12px;font-weight:650;margin-bottom:8px}
 .logo-setting{display:flex;align-items:center;gap:10px;min-height:48px}
-.logo-thumbnail{display:grid;place-items:center;flex:none;width:49px;height:49px;padding:5px;border:1px solid var(--line);border-radius:5px;background:#f9fcfa}
-.logo-thumbnail img{width:100%;height:100%;object-fit:contain}
+.logo-thumbnail{display:flex;align-items:center;justify-content:center;flex:0 0 49px;width:49px;height:49px;padding:5px;border:1px solid var(--line);border-radius:5px;background:#f9fcfa;overflow:hidden}
+.logo-thumbnail img{display:block;flex:none;width:37px;height:37px;min-width:0;max-width:100%;object-fit:contain;object-position:50% 50%;margin:0}
 .logo-thumbnail[data-shape="circle"] img{border-radius:50%;object-fit:cover}
 .logo-thumbnail[data-shape="square"] img{border-radius:0;object-fit:cover}
 .logo-shape-setting{border:0;padding:0;margin:14px 0 0;min-width:0}
